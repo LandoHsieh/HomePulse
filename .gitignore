@@ -1,0 +1,5 @@
+HomePulse_backend/node_modules
+HomePulse_frontend/node_modules
+HomePulse_webSocket/node_modules
+HomePulse_frontend/.env
+HomePulse_backend/.env
