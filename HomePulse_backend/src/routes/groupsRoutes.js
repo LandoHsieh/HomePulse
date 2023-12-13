@@ -1,6 +1,6 @@
 import express from 'express'
 import { requestHeaders, requestTokenValid} from '../middleware/middleWare.js'
-import { add2group, decryptGroupToken, genShareLink, getMemberPF, getMembers, getOwner_SpecDevices, getTeamInfo, getTeamLogsHistory, getTeams, removeMember, storeLog } from '../controllers/groupsController.js'
+import { add2group, decryptGroupToken, genShareLink, getMemberPF, getMembers, getOwnerName, getOwner_SpecDevices, getTeamInfo, getTeamLogsHistory, getTeams, removeMember, storeLog } from '../controllers/groupsController.js'
 
 const router = express.Router()
 router.use(express.json())
@@ -28,5 +28,7 @@ router.get('/getTeamInfo', requestTokenValid, getTeamInfo)
 router.get('/getTeamLogsHistory', requestTokenValid, getTeamLogsHistory)
 
 router.post('/storeLog', requestTokenValid, storeLog)
+
+router.get('/getOwnerName', requestTokenValid, getOwnerName)
 
 export default router

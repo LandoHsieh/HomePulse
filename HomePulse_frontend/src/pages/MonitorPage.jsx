@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import tokenValidFunc from '../utils/tokenValidFunc'
+
 import axios from 'axios'
 import Sidebar from '../components/sidebar/Sidebar'
 import { useSelector } from 'react-redux'
@@ -144,6 +144,7 @@ const MonitorPage = () => {
     return (
         
             <div className='w-full h-screen bg-back object-cover flex items-center'>
+                
                 <Sidebar userProfile={data.data} />
                 <div className='flex flex-col h-[96%] mt-2 gap-10 w-[743px]'>
 
@@ -161,9 +162,6 @@ const MonitorPage = () => {
                     </div>
 
                 </div>
-
-                
-
 
             </div>
       

@@ -97,7 +97,8 @@ const Members = ({ teamID, access_token, ownerID }) => {
 
       <div className='flex gap-9 bg-white border rounded-3xl w-full p-5'>
         {
-          members.map((member, idx) => (
+      
+         members.map((member, idx) => (
             <div key={idx} className='flex flex-col items-center' >
               <MemberCompo member={member} access_token={access_token} />
               <div className={`${(member.role !== 'admin' && showDelete) ? 'flex' : 'hidden'}`}>

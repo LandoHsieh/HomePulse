@@ -4,12 +4,18 @@ import http from 'http'
 import mqtt from 'mqtt'
 import { instrument } from '@socket.io/admin-ui'
 import axios from 'axios'
+import * as dotenv from 'dotenv'
 
+dotenv.config()
 
 const app = express()
-const PORT = 3001
+const PORT = 3002
 
-const mqttClient = mqtt.connect('mqtt://test.mosquitto.org')
+app.get('/', (req, res) =>{
+    res.send('hello socket')
+})
+
+const mqttClient = mqtt.connect(process.env.mqtt_broker)
 
 mqttClient.on('connect', () => {
     console.log('Connected to MQTT broker')
@@ -19,10 +25,12 @@ mqttClient.on('connect', () => {
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', "https://admin.socket.io"],
-        credentials: true
-        //origin: '*'
-    }
+        //origin: [process.env.frontend_hostname, process.env.socket_admin_hostname],
+        credentials: true,
+        origin: '*'
+    },
+    secure: true,
+    transports: ['websocket', 'polling' ]    
 })
 instrument(io, { auth: false, mode: "development" })
 
@@ -39,7 +47,7 @@ io.on('connection', (socket) => {
             socket.join(roomName)
             
             //FIXME 要把topic的temp_humi改成${type}
-            const topic = `HomePulseMQTT/monitor/temp_humi/${deviceID}`
+            const topic = `${process.env.mqtt_monitor}/temp_humi/${deviceID}`
             mqttClient.subscribe(topic)
 
             mqttClient.on('message', (receivedTopic, message) => {
@@ -55,14 +63,14 @@ io.on('connection', (socket) => {
     })
     socket.on('leaveDeviceRoom', ({ userID, deviceID, type }) => {
         const roomName = `${type}_${userID}_${deviceID}`
-        const topic = `HomePulseMQTT/monitor/temp_humi/${deviceID}`
+        const topic = `${process.env.mqtt_monitor}/temp_humi/${deviceID}`
         console.log(`Leaving room : ${roomName}`)
         
         mqttClient.unsubscribe(topic, (err) => {
             if (err) {
-                console.error(`Unsubscribe error for topic ${topic}:`, err);
+                console.error(`Unsubscribe error for topic`, err);
             } else {
-                console.log(`Unsubscribed from topic ${topic}`);
+                console.log(`Unsubscribed topic`);
             }
         })
         socket.leave(roomName)
@@ -89,7 +97,6 @@ io.on('connection', (socket) => {
     })
 
 })
-
 
 
 server.listen(PORT, () => {

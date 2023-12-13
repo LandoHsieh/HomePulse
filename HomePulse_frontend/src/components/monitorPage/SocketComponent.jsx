@@ -7,7 +7,10 @@ const { VITE_WEBSOCKET_HOST } = import.meta.env
 export const SocketProvider = ({ children }) => {
     const [socket, setSocket] = useState(null)
     useEffect(() => {
-        const newSocket = io(VITE_WEBSOCKET_HOST)
+        const newSocket = io(VITE_WEBSOCKET_HOST, {
+            withCredentials: true,
+            transports: ['websocket', 'pooling']
+        })
         setSocket(newSocket)
         return () => newSocket.disconnect()
     }, [])

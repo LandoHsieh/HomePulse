@@ -19,6 +19,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setLogin } from '../store/userSlice';
 import { setToggle } from '../store/sidebarSlice';
+import GoogleIcon from '@mui/icons-material/Google';
 
 
 
@@ -29,8 +30,8 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
+            <Link color="inherit" href="https://github.com/LandoHsieh">
+                HomePulse.com
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -43,8 +44,8 @@ function Copyright(props) {
 const LoginPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    
-    
+
+
 
     //clean localStorage first
     //localStorage.clear()
@@ -96,14 +97,14 @@ const LoginPage = () => {
 
     const handleGoogleSignin = () => {
         window.location.href = `${VITE_BACKEND_HOST}/auth/google`
-        
+
     }
 
     return (
         //<ThemeProvider theme={defaultTheme}>
-        <div className=' background flex items-center'>
+        <div className=' background flex '>
 
-        
+
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -114,9 +115,9 @@ const LoginPage = () => {
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar sizes='' src='../../src/assets/HomePulseLogo1.PNG' sx={{ m: 1, width:60, height:60, bgcolor: 'secondary.main' } }>
+                    <Avatar sizes='' src='../../src/assets/HomePulseLogo1.PNG' sx={{ m: 1, width: 60, height: 60, bgcolor: 'secondary.main' }}>
                         {/* <CottageTwoToneIcon /> */}
-                       
+
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Home Pulse
@@ -162,8 +163,9 @@ const LoginPage = () => {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                             onClick={handleGoogleSignin}
+                            startIcon={<GoogleIcon />}
                         >
-                            Google Sign In
+                            Google sign in
                         </Button>
                         <Grid container>
                             <Grid item xs>
@@ -172,16 +174,16 @@ const LoginPage = () => {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/Signup" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>
                         </Grid>
                     </Box>
                 </Box>
-
+                <Copyright sx={{ mt: 5 }} />
             </Container>
-            </div>
+        </div>
         //</ThemeProvider>
 
     );

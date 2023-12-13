@@ -13,7 +13,7 @@ const UserProfile = ({ toggle, userProfile }) => {
           sx={{ width: 56, height: 56 }}
         />
       </div>
-      <div className={`${toggle ? " opacity-0 delay-100" : ""}`}>
+      <div className={`${toggle ? " opacity-0 delay-100" : ""} overflow-hidden`}>
         <h3 className=" text-xl">{userProfile.userName}</h3>
         <span className=' text-[0.75rem] opacity-60'>{userProfile.email}</span>
 

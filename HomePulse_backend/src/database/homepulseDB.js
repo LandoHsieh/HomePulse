@@ -16,11 +16,11 @@ const connection = await pool.getConnection()
 
 
 export async function createUser(name, email, password, provider, avatar) {
-    const userAmount = await pool.query("select count(*) from Users")
-    const userId = userAmount[0][0]['count(*)'] + 1
+    const userId = Math.floor(Math.random() * 9000000000) + 1000000000
+
     const teams = []
-    //TODO teamID 改成亂數生成
-    const teamID = 4150
+    
+    const teamID = Math.floor(Math.random() * 9000000000) + 1000000000
     const salt = bcrypt.genSaltSync(10)
     const hashedPassword = bcrypt.hashSync(password, salt)
     const role = 'user'
@@ -36,7 +36,7 @@ export async function createUser(name, email, password, provider, avatar) {
         [teamID, `${name}'s Home`, userId, JSON.stringify(member), '[]']
     )
 
-    return [userId, hashedPassword]
+    return [userId, teams, role]
 
 }
 
@@ -79,25 +79,23 @@ export async function createGoogleUser(name, email, avatar) {
     const provider = "google"
     const password = null
     const teams = []
-
-    const userAmount = await pool.query("select count(*) from Users")
-    const userId = userAmount[0][0]['count(*)'] + 1
+    const teamID = Math.floor(Math.random() * 9000000000) + 1000000000
+    const userId = Math.floor(Math.random() * 9000000000) + 1000000000
     const role = 'user'
-    await pool.query(
-        "insert into Users (userID, userName, email, password, role, avatar, teams, provider) values (?, ?, ?, ?, ?, ?, ?, ? )",
-        [userId, name, email, password, role, avatar, JSON.stringify(teams), provider]
+    const member = [{"role":"admin","userID":userId}]
+    const create_user = await pool.query(
+        "insert into Users (userID, userName, email, role, avatar, teams, provider, teamID, teamName) values (?, ?, ?, ?, ?, ?, ?, ?, ? )",
+        [userId, name, email, role, avatar, JSON.stringify(teams), provider, teamID, `${name}'s Home`]
     )
-    // await pool.query(
-    //     "insert into userDevices (deviceID, deviceName, type, method, iconID,userID) values (?, ?, ?, ?, ?, ?)",
-    //     []
-    // )
-
+    const create_team = await pool.query(
+        "insert into Teams (teamID, teamName, ownerID, member, devices) values (?, ?, ?, ?, ?)",
+        [teamID, `${name}'s Home`, userId, JSON.stringify(member), '[]']
+    )
     return [userId, provider]
 }
 
 export async function getProfile(userID) {
     const result = await pool.query("select userID, userName, email, role, avatar, teams, teamID, teamName from Users where userID = ?", [userID])
-
     return result[0][0]
 }
 
@@ -196,6 +194,12 @@ export async function getMembersDB(teamID) {
 export async function getOwnerSpecDevices(ownerID, method) {
     const result = await pool.query("select * from userDevices where userID = ? and method = ?", [ownerID, method])
     return result[0]
+}
+
+export async function get_owner_name(ownerID){
+    const ownerName = await pool.query("select userName from Users where userID = ?", [ownerID])
+    // console.log(ownerName[0])
+    return ownerName[0][0].userName
 }
 
 export async function getUserTeams(userID) {

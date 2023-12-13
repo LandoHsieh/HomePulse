@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { addToGroup, addUserTeams, getMemberProfile, getMembersDB, getOwnerSpecDevices, getUserTeams, get_logs_history, get_team_info, removeFromGroup, removeUserTeams, store_log } from '../database/homepulseDB.js'
+import { addToGroup, addUserTeams, getMemberProfile, getMembersDB, getOwnerSpecDevices, getUserTeams, get_logs_history, get_owner_name, get_team_info, removeFromGroup, removeUserTeams, store_log } from '../database/homepulseDB.js'
 
 export const genShareLink = (req, res) => {
     const frontend_hostname = process.env.frontend_hostname
@@ -75,7 +75,7 @@ export const getMemberPF = async (req, res) => {
     const { userID } = req.payload
     const { memberID } = req.query
     const memberProfile = await getMemberProfile(memberID)
-    console.log("member profile: ", memberProfile)
+    //console.log("member profile: ", memberProfile)
     res.status(200).json(memberProfile)
 }
 
@@ -107,7 +107,7 @@ export const getTeamLogsHistory = async (req, res) => {
     const { userID } = req.payload
     const { teamID } = req.query
     const logs = await get_logs_history(teamID)
-    console.log("logs: ", logs)
+    //console.log("logs: ", logs)
     res.status(200).send(logs)
     
 }
@@ -118,4 +118,12 @@ export const storeLog = async (req, res) => {
     await store_log(logInfo)
     //error 儲存log失敗的error handling
     res.status(200).send('ok')
+}
+
+export const getOwnerName = async (req, res) => {
+    const { userID } = req.payload
+    const { ownerID } = req.query
+    console.log("ownerID: ", ownerID)
+    const ownerName = await get_owner_name(ownerID)
+    res.status(200).send(ownerName)
 }
