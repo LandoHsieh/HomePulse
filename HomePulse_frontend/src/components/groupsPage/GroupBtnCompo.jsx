@@ -8,6 +8,7 @@ const GroupBtnCompo = ({ team, access_token, setGroupStatus, setTeam }) => {
   //team: teamID, ownerID
   //teamInfo: teamID, teamName, ownerID, member, devices
   const [teamInfo, setTeamInfo] = useState({})
+  const [ownerName, setOwnerName] = useState('')
   const fetchTeamInfo = () => {
     axios.get(
       `${VITE_BACKEND_HOST}/api/1.0/groups/getTeamInfo?teamID=${team.teamID}`,
@@ -19,6 +20,19 @@ const GroupBtnCompo = ({ team, access_token, setGroupStatus, setTeam }) => {
     ).then(response => {
       console.log(response.data)
       setTeamInfo(response.data)
+      fetchOwnerName(response.data.ownerID)
+    })
+  }
+  const fetchOwnerName = (ownerID) => {
+    axios.get(
+      `${VITE_BACKEND_HOST}/api/1.0/groups/getOwnerName?ownerID=${ownerID}`,
+      {
+        headers: {
+          Authorization: `bearer ${access_token}`
+        }
+      }
+    ).then(response => {
+      setOwnerName(response.data)
     })
   }
 
@@ -49,7 +63,7 @@ const GroupBtnCompo = ({ team, access_token, setGroupStatus, setTeam }) => {
           Owner
         </div>
         <div>
-          {teamInfo.ownerID}
+          {ownerName}
         </div>
       </div>
 

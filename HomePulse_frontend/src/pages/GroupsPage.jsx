@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../components/sidebar/Sidebar'
 import { useNavigate } from 'react-router-dom'
 import { Skeleton } from '@mui/material'
-import GroupDetails from '../components/groupsPage/groupDetails'
 import axios from 'axios'
 import GroupBtnCompo from '../components/groupsPage/GroupBtnCompo'
 import Groups from '../components/groupsPage/Groups'
+import GroupDetails from '../components/groupsPage/GroupDetails'
 
 
 const { VITE_BACKEND_HOST } = import.meta.env
@@ -19,7 +19,8 @@ const GroupsPage = () => {
     const [groupStatus, setGroupStatus] = useState(false)
     const userProfileLocalStorage = localStorage.getItem('userProfile')
 
-    //console.log(userProfileLocalStorage)
+
+    //userTeams [{teamID, ownerID}]
 
     const fetchTeams = () => {
         axios.get(
@@ -51,15 +52,15 @@ const GroupsPage = () => {
         <div className=' background items-center flex'>
             {
                 userProfile ? (
-                    <>
-                        <Sidebar userProfile={userProfile} />
-                    </>
+                
+                    <Sidebar userProfile={userProfile} />
+                  
                 )
                     :
                     <Skeleton variant="rectangular" width={210} height={118} />
             }
             
-            <div id='groupsContainer' className='h-[96%] border rounded-2xl w-[70%]'>
+            <div id='groupsContainer' className='h-[96%]  rounded-2xl w-[70%]'>
                 {/* <GroupDetails team={team} access_token={access_token}/> */}
 
                 {/* {

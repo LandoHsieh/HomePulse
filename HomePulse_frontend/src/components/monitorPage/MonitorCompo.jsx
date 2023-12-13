@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
-import DeviceIcon from '../controllerPage/deviceIcon'
+import DeviceIcon from '../controllerPage/DeviceIcon'
 import { useSocket } from './SocketComponent'
 
 

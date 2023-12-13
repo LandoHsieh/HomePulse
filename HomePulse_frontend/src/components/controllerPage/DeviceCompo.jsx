@@ -3,7 +3,7 @@ import LightIcon from '@mui/icons-material/Light';
 import { IconButton, Switch } from '@mui/material';
 import axios from 'axios';
 import { Fingerprint } from '@mui/icons-material';
-import DeviceIcon from './deviceIcon';
+import DeviceIcon from './DeviceIcon';
 
 const { VITE_BACKEND_HOST } = import.meta.env
 
@@ -45,7 +45,7 @@ const DeviceCompo = ({ deviceInfo, access_token }) => {
     }
 
     return (
-        <div id="device" className={`flex justify-between w-[163px] h-[136px] ${status ? ' bg-violet-400' : 'bg-white'} rounded-[25px] shadow-inner border border-slate-200 border-opacity-80 p-[14px]`}>
+        <div id="device" className={` flex justify-between w-[163px] h-[136px] ${status ? ' bg-violet-400' : 'bg-white'} rounded-[25px] shadow-inner border border-slate-200 border-opacity-80 p-[14px]`}>
             <div id='left' className='flex flex-col justify-between'>
                 <div>{status ? 'ON' : 'OFF'}</div>
                 {/* <LightIcon /> */}

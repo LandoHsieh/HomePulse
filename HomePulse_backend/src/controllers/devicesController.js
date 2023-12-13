@@ -1,7 +1,8 @@
 import { mqttClient } from '../../index.js'
 import { addDevice, removeDevice } from '../database/homepulseDB.js'
+import * as dotenv from 'dotenv'
 
-
+dotenv.config()
 
 export const add_device = async (req, res) => {
     const { userID } = req.payload
@@ -29,10 +30,10 @@ export const lightControl = (req, res) => {
     const { userID } = req.payload
     const { deviceID, status } = req.body
     if (userID) {
-        const topic = `HomePulseMQTT/control/light/${deviceID}`
+        const topic = `${process.env.mqtt_controller}/light/${deviceID}`
         mqttClient.subscribe(topic, (err) => {
             if (!err) {
-                console.log(`Subscribed to topic ${topic}`)
+                console.log(`Subscribed to topic light`)
             } else {
                 console.log('Subscribed error: ', err)
             }
@@ -57,10 +58,10 @@ export const doorLockControl = (req, res) => {
     const { userID } = req.payload
     if (userID) {
         const { deviceID } = req.body
-        const topic = `HomePulseMQTT/control/doorLock/${deviceID}`
+        const topic = `${process.env.mqtt_controller}/doorLock/${deviceID}`
         mqttClient.subscribe(topic, (err) => {
             if (!err) {
-                console.log(`Subscribed to topic ${topic}`)
+                console.log(`Subscribed to topic doorLock`)
             } else {
                 console.log('Subscribed error: ', err)
             }
@@ -85,7 +86,7 @@ export const temperatureMonitor = (req, res) => {
         res.status(401).send('Cannot get userID.')
     }
     const { deviceID } = req.body
-    const topic = `HomePulseMQTT/monitor/temp_humi/${deviceID}`
+    const topic = `${process.env.mqtt_monitor}/temp_humi/${deviceID}`
 
     new Promise((resolve, reject) => {
         mqttClient.subscribe(topic, (err) => {
@@ -93,7 +94,7 @@ export const temperatureMonitor = (req, res) => {
                 console.log('Subscribe error: ', err)
                 return reject(err)
             }
-            console.log(`Subscribed to topic ${topic}`)
+            console.log(`Subscribed to topic temp_humi`)
 
             mqttClient.on('message', (receivedTopic, message) => {
                 if(receivedTopic === topic){

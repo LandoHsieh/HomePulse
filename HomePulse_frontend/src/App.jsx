@@ -5,6 +5,8 @@ import ControllerPage from './pages/ControllerPage'
 import GroupsPage from './pages/GroupsPage'
 import StoreGroupInvitePage from './pages/StoreGroupInvitePage'
 import LogsPage from './pages/LogsPage'
+import SignUpPage from './pages/SignUpPage'
+
 function App() {
   return (
     <Routes>
@@ -14,6 +16,7 @@ function App() {
       <Route path='/Groups' element={<GroupsPage />} />
       <Route path='/Logs' element={<LogsPage />} />
       <Route path='/invite' element={<StoreGroupInvitePage />} />
+      <Route path='/Signup' element={<SignUpPage />} />
     </Routes>
     
   )

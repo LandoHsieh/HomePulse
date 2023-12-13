@@ -19,37 +19,12 @@ const PORT = 3000
 
 dotenv.config()
 
-const mqttClient = mqtt.connect('mqtt://test.mosquitto.org')
+const mqttClient = mqtt.connect(process.env.mqtt_broker)
 
 mqttClient.on('connect', () => {
     console.log('Connected to MQTT broker')
     
 })
-
-// const server = http.createServer(app)
-// const io = new Server(server, {
-//     cors: {
-//         origin: '*'
-//     }
-// })
-
-// io.on('connection', (socket) => {
-//     console.log('a user connected')
-//     socket.on('joinDeviceRoom', ({ userID, deviceID }) => {
-//         const roomName = `temp_humi_${userID}_${deviceID}`
-//         socket.join(roomName)
-
-//         const topic = `HomePulseMQTT/monitor/temp_humi/${deviceID}`
-//         mqttClient.subscribe(topic)
-
-//         mqttClient.on('message', (receivedTopic, message) => {
-//             if(receivedTopic === topic){
-//                 io.to(roomName.emit('temp_humi', message.toString()))
-//             }
-//         })
-//     })
-
-// })
 
 export { mqttClient }
 
@@ -74,39 +49,6 @@ app.use('/api/1.0/groups', groupsRoutes)
 
 app.get('/', (req, res) => {
     res.send('hello')
-})
-
-
-
-
-
-
-
-
-//記得改為post做身份驗證
-
-app.get('/api/1.0/control/light/:id', (req, res) => {
-    const { id } = req.params
-    console.log("Light id = ", id)
-    const { status } = req.query
-    if(status === 'on'){
-        mqttClient.publish(topic, '1')
-        res.send('Light is on')
-    }else if(status === 'off'){
-        mqttClient.publish(topic, '2')
-        res.send('Light is off')
-    }
-})
-
-app.get('/api/1.0/control/doorLock/:id', (req, res) => {
-    const { id } = req.params
-    console.log("DoorLock id = ", id)
-    const { status } = req.query
-    if(status === 'unlock'){
-        mqttClient.publish(topic, '8')
-        res.send('Light is on')
-    }
-    
 })
 
 app.listen(PORT, () => {

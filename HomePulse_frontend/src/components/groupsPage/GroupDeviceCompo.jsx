@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Fingerprint } from '@mui/icons-material';
-import DeviceIcon from '../controllerPage/deviceIcon';
+import DeviceIcon from '../controllerPage/DeviceIcon';
 import { IconButton, Switch } from '@mui/material';
+
 
 const { VITE_BACKEND_HOST } = import.meta.env
 
@@ -27,6 +28,7 @@ const GroupDeviceCompo = ({ deviceInfo, access_token, userProfile, socket, team 
                 }
             }
         )
+
         const now = new Date()
         const formattedTime = now.toISOString()
         const logMessage = {
