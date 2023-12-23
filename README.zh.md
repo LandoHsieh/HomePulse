@@ -19,9 +19,43 @@
 - Arduino自製感測器裝置
 - MQTT通訊協定，達成物聯網操控
 - WebSocket，即時顯示感測器數值
-## 使用框架
-- 前端：React
-- 後端：Express
+
+## 前端
+### 框架 
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+### UI工具
+- [Material UI](https://mui.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+
+### 狀態管理
+- [react-redux](https://react-redux.js.org/)
+
+### API請求
+- [axios](https://axios-http.com/)
+- [react-query](https://tanstack.com/query/v3/)
+
+## 後端
+### 框架
+- [Express.js](https://expressjs.com/zh-tw/)
+  
+### 資料庫
+- [mysql2](https://www.npmjs.com/package/mysql2)
+
+### 通訊協定
+- [MQTT](https://www.npmjs.com/package/mqtt)
+- [WebSocket](https://www.npmjs.com/package/socket.io)
+
+### Auth
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [passport](https://www.passportjs.org/docs/)
+- [OAuth2.0](https://developers.google.com/identity/protocols/oauth2?hl=zh-tw)
+
+### 雲端服務 ＆ 部署
+- AWS EC2
+- AWS RDS
+- Docker
 
 ## 系統架構
 ![HomePulse架構圖 drawio](https://github.com/LandoHsieh/HomePulse/assets/138661291/8308a419-0883-473b-a212-b0a8041f6a1c)
