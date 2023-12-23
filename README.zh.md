@@ -1,8 +1,7 @@
-# ✨HomePulse✨
-<img width="1144" alt="截圖 2023-12-23 下午1 14 51" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/a9c2414a-deaf-4c98-a518-e136ab4dfb89">
+# ✨HomePulse✨  
+- ### `HomePulse`是一個物聯網監控網站，透過我們`自製的感測器`或`開關`，可以達成`不限距離`，遠端操控，提升家中生活品質及安全性  
+<img width="1144" alt="截圖 2023-12-23 下午1 14 51" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/a9c2414a-deaf-4c98-a518-e136ab4dfb89">  
 
-## 簡介
-- `HomePulse`是一個物聯網監控網站，透過我們`自製的感測器`或`開關`，可以達成`不限距離`，遠端操控，提升家中生活品質及安全性
 ## 功能特點
 - ### 監控頁面-用於監控感測器傳來的數值
   溫濕度感測器  
