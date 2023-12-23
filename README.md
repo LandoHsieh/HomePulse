@@ -19,9 +19,43 @@
 - Custom-made Arduino sensor devices
 - MQTT communication protocol for IoT control
 - WebSocket for real-time sensor data display
-## Frameworks
-- Frontend: React
-- Backend: Express
+
+## Frontend
+### Framwork 
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+### UI Tools
+- [Material UI](https://mui.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+
+### State Management
+- [react-redux](https://react-redux.js.org/)
+
+### API Call
+- [axios](https://axios-http.com/)
+- [react-query](https://tanstack.com/query/v3/)
+
+## Backend
+### Framwork
+- [Express.js](https://expressjs.com/zh-tw/)
+  
+### Database
+- [mysql2](https://www.npmjs.com/package/mysql2)
+
+### Communication protocol
+- [MQTT](https://www.npmjs.com/package/mqtt)
+- [WebSocket](https://www.npmjs.com/package/socket.io)
+
+### Auth
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [passport](https://www.passportjs.org/docs/)
+- [OAuth2.0](https://developers.google.com/identity/protocols/oauth2?hl=zh-tw)
+
+### Cloud Service & Deployment
+- AWS EC2
+- AWS RDS
+- Docker
 
 ## System Architecture
 ![HomePulse架構圖 drawio](https://github.com/LandoHsieh/HomePulse/assets/138661291/8308a419-0883-473b-a212-b0a8041f6a1c)
