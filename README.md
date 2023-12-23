@@ -1,26 +1,28 @@
-# HomePulse
-
-## Introduction
-- HomePulse is an IoT (Internet of Things) monitoring website. Through our custom-made sensors or switches, it enables remote control without distance limitations, enhancing the quality and safety of home life.
+# ✨HomePulse✨  
+- ### `HomePulse` is an IoT monitoring website that allows remote control and enhances the quality and safety of home life through our `custom-made sensors` and `switches`, achieving `unlimited distance` control.
+<img width="1144" alt="截圖 2023-12-23 下午1 14 51" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/a9c2414a-deaf-4c98-a518-e136ab4dfb89">  
 
 ## Features
-- Monitoring Page
-  Used for monitoring data from sensors, such as current temperature and humidity.
-- Control Page
-  Used for controlling IoT switches in the home, for example: turning lights on/off, controlling electromagnetic door locks, air conditioners, etc.
-- Group Page
-  Users can invite other users to join their group using an invitation code to collectively monitor home safety.
-- Usage Log Page
-  The log page displays records of what devices were operated by group members and at what times.
+- ### Monitoring Page - For tracking sensor data
+  Temperature and Humidity Sensors  
+  ![溫濕度感測器](https://github.com/LandoHsieh/HomePulse/assets/138661291/04ae2b4c-0211-4b69-ad31-18d451425766)  
+  Laser Sensors (Intrusion Alarms)  
+  ![雷射入侵警報](https://github.com/LandoHsieh/HomePulse/assets/138661291/f8f03167-218a-41f0-ac96-8c878fe5ac33)  
+- ### Control Page - Used for controlling IoT switches at home, such as: controlling light switches, electromagnetic door locks, air conditioners, etc.  
+  ![遠端燈控](https://github.com/LandoHsieh/HomePulse/assets/138661291/8ebbe68c-d28e-46e6-944a-facb393b3349)  
+- ### Group Page - Users can invite others to join their group using an invitation code, collectively monitoring home security.  
+  <img width="816" alt="截圖 2023-12-23 下午1 02 45" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/c96cc42a-3a25-4cbc-99e5-3bf0b875c2ec">  
+- ### Usage Log Page - The log page displays records of which devices were operated by group members and at what time.  
+  <img width="1081" alt="截圖 2023-12-23 下午1 02 59" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/e4cc94a7-3c17-4c1f-95b9-33a52e7ee7c7">  
 
 ## Core Technologies
-- Custom-made Arduino sensor devices.
-- MQTT communication protocol for IoT control.
-- WebSocket for real-time display of sensor data.
-
-## Frameworks Used
+- Custom-made Arduino sensor devices
+- MQTT communication protocol for IoT control
+- WebSocket for real-time sensor data display
+## Frameworks
 - Frontend: React
 - Backend: Express
 
-## Feature Demonstration
+## System Architecture
+![HomePulse架構圖 drawio](https://github.com/LandoHsieh/HomePulse/assets/138661291/8308a419-0883-473b-a212-b0a8041f6a1c)
 
