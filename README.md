@@ -8,7 +8,7 @@
   ![溫濕度感測器](https://github.com/LandoHsieh/HomePulse/assets/138661291/04ae2b4c-0211-4b69-ad31-18d451425766)  
   Laser Sensors (Intrusion Alarms)  
   ![雷射入侵警報](https://github.com/LandoHsieh/HomePulse/assets/138661291/f8f03167-218a-41f0-ac96-8c878fe5ac33)  
-- ### Control Page - Used for controlling IoT switches at home, such as: controlling light switches, electromagnetic door locks, air conditioners, etc.  
+- ### Control Page - Used for controlling IoT switches at home, such as controlling light switches, electromagnetic door locks, air conditioners, etc.  
   ![遠端燈控](https://github.com/LandoHsieh/HomePulse/assets/138661291/8ebbe68c-d28e-46e6-944a-facb393b3349)  
 - ### Group Page - Users can invite others to join their group using an invitation code, collectively monitoring home security.  
   <img width="816" alt="截圖 2023-12-23 下午1 02 45" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/c96cc42a-3a25-4cbc-99e5-3bf0b875c2ec">  
