@@ -15,6 +15,9 @@
 - ### 使用日誌頁面-日誌頁面會顯示紀錄群組中的使用者在什麼時間操作了什麼裝置
   <img width="1081" alt="截圖 2023-12-23 下午1 02 59" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/e4cc94a7-3c17-4c1f-95b9-33a52e7ee7c7">
 
+## Demo  
+https://youtu.be/rzakvRk2Ddw?si=wwQwFpp1eoe-gwCk
+
 ## 測試帳號
 |帳號|密碼|
 |----|----|
