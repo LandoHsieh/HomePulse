@@ -15,6 +15,9 @@
 - ### Usage Log Page - The log page displays records of which devices were operated by group members and at what time.  
   <img width="1081" alt="截圖 2023-12-23 下午1 02 59" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/e4cc94a7-3c17-4c1f-95b9-33a52e7ee7c7">  
 
+## Demo  
+https://youtu.be/rzakvRk2Ddw?si=wwQwFpp1eoe-gwCk
+
 ## Test Account
 |Account|Password|
 |----|----|
