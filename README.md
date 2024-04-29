@@ -1,4 +1,8 @@
 # ✨HomePulse✨  
+
+## Video Demo  
+https://youtu.be/rzakvRk2Ddw?si=wwQwFpp1eoe-gwCk  
+
 - ### `HomePulse` is an IoT monitoring website that allows remote control and enhances the quality and safety of home life through our `custom-made sensors` and `switches`, achieving `unlimited distance` control.
 <img width="1144" alt="截圖 2023-12-23 下午1 14 51" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/a9c2414a-deaf-4c98-a518-e136ab4dfb89">  
 
@@ -14,9 +18,6 @@
   <img width="816" alt="截圖 2023-12-23 下午1 02 45" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/c96cc42a-3a25-4cbc-99e5-3bf0b875c2ec">  
 - ### Usage Log Page - The log page displays records of which devices were operated by group members and at what time.  
   <img width="1081" alt="截圖 2023-12-23 下午1 02 59" src="https://github.com/LandoHsieh/HomePulse/assets/138661291/e4cc94a7-3c17-4c1f-95b9-33a52e7ee7c7">  
-
-## Demo  
-https://youtu.be/rzakvRk2Ddw?si=wwQwFpp1eoe-gwCk
 
 ## Test Account
 |Account|Password|
